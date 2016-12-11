@@ -6,7 +6,7 @@ import httpServer from "./lib/http/server";
 app.attach(httpServer);
 
 const port = 8000;
-httpServer.listen(() => {
+httpServer.listen(port, () => {
     console.log(`The server is now listening on ${port}`);
 });
 
