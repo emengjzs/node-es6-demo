@@ -4,6 +4,7 @@ import app from "./lib/app";
 import httpServer from "./lib/http/server";
 
 app.attach(httpServer);
+app.use(express.static("public"));
 
 const port = 8000;
 httpServer.listen(port, () => {
