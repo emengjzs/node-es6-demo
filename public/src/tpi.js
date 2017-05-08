@@ -2,13 +2,14 @@ $.ajax({
    type: 'GET',
    url: 'api/tpi/info',
    data: {
-     s: new Date('2016-08-01 00:00:00').getTime(),
-     e: new Date('2016-08-01 23:00:00').getTime()
+     s: new Date('2016-08-01 06:00:00').getTime(),
+     e: new Date('2016-08-01 12:00:00').getTime()
    }
  }).then(res => {
   const ctx = document.getElementById('chart');
   const scatterChart = new Chart(ctx, {
     type: 'line',
+    
     data: {
       datasets: [
         {
@@ -23,6 +24,15 @@ $.ajax({
         }
       ]
     },
-    options: {scales: {xAxes: [{type: 'linear', position: 'bottom'}]}}
+    options: {
+      scales: {
+         yAxes: [{
+                ticks: {
+                    min: 0,
+                }
+            }],
+        xAxes: [{ type: 'linear', position: 'bottom' }]
+      }
+    }
   });
 });
